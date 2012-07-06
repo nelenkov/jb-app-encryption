@@ -13,7 +13,7 @@ Installation:
   $ adb shell
   $ su
   # mount -o remount,rw /system
-```shell
+```
 
 3. Push the APK to external storage and copy to /system/app:
 ```shell
