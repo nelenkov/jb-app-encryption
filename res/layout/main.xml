@@ -76,7 +76,7 @@
         android:hint="APK filename"
         android:inputType="text"
         android:singleLine="true"
-        android:text="kanji-recognizer-signed-2.2.2-nl-enc.apk" />
+        android:text="my-app-enc.apk" />
 
     <CheckBox
         android:id="@+id/check_hmac_cb"
@@ -124,7 +124,7 @@
         android:hint="HMAC tag (HEX)"
         android:inputType="text"
         android:singleLine="true"
-        android:text="0dc53c04d33658ce554ade37de8013b2cff0a6a5" />
+        android:text="" />
 
     <Button
         android:id="@+id/install_button"
