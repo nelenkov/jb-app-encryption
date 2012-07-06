@@ -1,0 +1,7 @@
+<resources>
+
+    <string name="app_name">JB App Encryption</string>
+    <string name="message">Enter encryption/HMAC params and APK filename, then press button to install app.</string>
+    <string name="title_activity_main">@string/app_name</string>
+
+</resources>
