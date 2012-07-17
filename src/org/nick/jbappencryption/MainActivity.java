@@ -38,8 +38,10 @@ public class MainActivity extends Activity implements OnClickListener,
 
     private static final String TAG = MainActivity.class.getSimpleName();
 
-    // flag for installPackage()
+    // flags for installPackage()
     public static final int INSTALL_REPLACE_EXISTING = 0x00000002;
+
+    public static final int INSTALL_FORWARD_LOCK = 0x00000001;
 
     // installPackage() return code
     public static final int INSTALL_SUCCEEDED = 1;
@@ -50,6 +52,7 @@ public class MainActivity extends Activity implements OnClickListener,
     private EditText ivText;
     private EditText apkFileText;
     private CheckBox checkHmacCb;
+    private CheckBox forwardLockCb;
     private EditText hmacKeyText;
     private EditText hmacText;
     private Button installButton;
@@ -70,6 +73,7 @@ public class MainActivity extends Activity implements OnClickListener,
         apkFileText = (EditText) findViewById(R.id.apk_filename_text);
         checkHmacCb = (CheckBox) findViewById(R.id.check_hmac_cb);
         checkHmacCb.setOnCheckedChangeListener(this);
+        forwardLockCb = (CheckBox) findViewById(R.id.forward_lock_cb);
         hmacKeyText = (EditText) findViewById(R.id.hmac_key_text);
         hmacText = (EditText) findViewById(R.id.hmac_tag_text);
         toggleHmacFields(checkHmacCb.isChecked());
@@ -231,6 +235,9 @@ public class MainActivity extends Activity implements OnClickListener,
         Uri verificationURI = null;
         ManifestDigest md = null;
         int flags = INSTALL_REPLACE_EXISTING;
+        if (forwardLockCb.isChecked()) {
+            flags |= INSTALL_FORWARD_LOCK;
+        }
         installWithVerification.invoke(pm, new Object[] { packageURI,
                 installObserver, flags, "my.market", verificationURI, md,
                 encryptionParams });
